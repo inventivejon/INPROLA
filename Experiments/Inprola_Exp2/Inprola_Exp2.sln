@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.29319.158
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inprola_Exp2", "Inprola_Exp2\Inprola_Exp2.csproj", "{0A4340E7-6752-4F40-8E76-F84FB9179082}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InprolaDBExp1", "..\..\..\INPROLA-DB\InprolaDBExp1\InprolaDBExp1.csproj", "{D32B3A3F-B03C-42D8-A23E-2149DF22FE6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InprolaDBExp1", "..\..\..\INPROLA-DB\InprolaDBExp1\InprolaDBExp1.csproj", "{D32B3A3F-B03C-42D8-A23E-2149DF22FE6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INPROLA-Web-React-Express-Exp1", "..\..\..\INPROLA-Web-React-Express\Exp1\INPROLA-Web-React-Express-Exp1\INPROLA-Web-React-Express-Exp1.csproj", "{4AD502E9-EA31-4A97-AF62-FCF761D60908}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inprola_EnvironmentFactoryTemplate", "Inprola_EnvironmentFactoryTemplate\Inprola_EnvironmentFactoryTemplate\Inprola_EnvironmentFactoryTemplate.csproj", "{57E0F6AD-2125-4583-9D2C-501F79DD91F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{D32B3A3F-B03C-42D8-A23E-2149DF22FE6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D32B3A3F-B03C-42D8-A23E-2149DF22FE6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D32B3A3F-B03C-42D8-A23E-2149DF22FE6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AD502E9-EA31-4A97-AF62-FCF761D60908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AD502E9-EA31-4A97-AF62-FCF761D60908}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AD502E9-EA31-4A97-AF62-FCF761D60908}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AD502E9-EA31-4A97-AF62-FCF761D60908}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57E0F6AD-2125-4583-9D2C-501F79DD91F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57E0F6AD-2125-4583-9D2C-501F79DD91F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57E0F6AD-2125-4583-9D2C-501F79DD91F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57E0F6AD-2125-4583-9D2C-501F79DD91F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

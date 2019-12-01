@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 
 namespace Inprola_Exp2
@@ -45,23 +46,28 @@ namespace Inprola_Exp2
             return new List<string>(sentence.Split(' ', StringSplitOptions.RemoveEmptyEntries));
         }
 
-        static string CreateRequirementResult(List<string> requirements)
+        static string CreateRequirementResult(string requirement)
         {
             var result = "";
-
-            foreach (var singleRequirement in requirements)
-            {
-                
-            }
 
             return result;
         }
 
         static void Main(string[] args)
         {
-            _inDB = new InDB();
-            _inDB.StartEngine("C:/Projects/inDB_Data_Exp2");
+            _inDB = new InDB(@"C:\Projects\inDB_Data_Exp2", new string[] { "Deutsch" });
+            bool setupStatus = true;
+            setupStatus = setupStatus && _inDB.StartEngine();
+            setupStatus = setupStatus && _inDB.RegisterFullDBNode(@"C:\Projects\INPROLA-Web-React-Express\Exp1\InDB4React");
+            setupStatus = setupStatus && _inDB.RegisterFullDBNode(@"C:\Projects\INPROLA-Web-React-Express\Exp1\InDB4Express");
 
+            if (!setupStatus)
+            {
+                Console.WriteLine("Failed to initialize base InDB Parts");
+                Console.ReadLine();
+                Environment.Exit(0);
+            }
+            
             RestoreRequirements();
 
             while (true)
@@ -82,9 +88,9 @@ namespace Inprola_Exp2
                         break;
 
                     case "s":
-                        foreach(var singleRequirement in allRequirements)
+                        foreach (var singleRequirement in allRequirements.Select((x, i) => new { Value = x, Index = i }))
                         {
-                            Console.WriteLine(singleRequirement);
+                            Console.WriteLine($"[{singleRequirement.Index}] {singleRequirement.Value}");
                         }
                         break;
 
@@ -108,7 +114,9 @@ namespace Inprola_Exp2
                         break;
 
                     case "c":
-                        var result = CreateRequirementResult(allRequirements);
+                        Console.WriteLine("Wähle ein Requirement per Index aus:");
+                        int index = int.Parse(Console.ReadLine());
+                        var result = CreateRequirementResult(allRequirements[index]);
                         Console.Write(result);
                         Console.WriteLine("");
                         break;
