@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
 using System.IO;
 using System.Text.Json;
 
@@ -8,140 +7,109 @@ namespace Inprola_Exp2
 {
     class Program
     {
-        private static List<string> allSentences;
+        private static List<string> allRequirements;
+        private const string _RequirementFilename = "AllRequirements.json";
 
-        private static void RestoreSentences()
+        private static void DeleteRequirements()
+        {
+            allRequirements = new List<string>();
+        }
+
+        private static void RestoreRequirements()
         {
             try
             {
                 // Open the text file using a stream reader.
-                using (StreamReader sr = new StreamReader("AllSentences.json"))
+                using (StreamReader sr = new StreamReader(_RequirementFilename))
                 {
                     // Read the stream to a string, and write the string to the console.
                     String line = sr.ReadToEnd();
-                    allSentences = JsonSerializer.Deserialize<List<string>>(line);
+                    allRequirements = JsonSerializer.Deserialize<List<string>>(line);
                 }
             }
             catch
             {
-                allSentences = new List<string>();
+                allRequirements = new List<string>();
             }
         }
 
-        static SQLiteConnection CreateConnection()
+        static List<string> SplitSentences(string requirement)
         {
+            return new List<string>(requirement.Split('.', StringSplitOptions.RemoveEmptyEntries));
+        }
 
-            SQLiteConnection sqlite_conn;
-            // Create a new database connection:
-            sqlite_conn = new SQLiteConnection("Data Source= database.db; Version = 3; New = True; Compress = False; ");
-         // Open the connection:
-         try
+        static List<string> SplitWords(string sentence)
+        {
+            return new List<string>(sentence.Split(' ', StringSplitOptions.RemoveEmptyEntries));
+        }
+
+        static string CreateRequirementResult(List<string> requirements)
+        {
+            var result = "";
+
+            foreach (var singleRequirement in requirements)
             {
-                sqlite_conn.Open();
+                
             }
-            catch (Exception ex)
-            {
 
-            }
-            return sqlite_conn;
-        }
-
-        static void CreateTable(SQLiteConnection conn)
-        {
-
-            SQLiteCommand sqlite_cmd;
-            string Createsql = "CREATE TABLE SampleTable (Col1 VARCHAR(20), Col2 INT)";
-           string Createsql1 = "CREATE TABLE SampleTable1 (Col1 VARCHAR(20), Col2 INT)";
-           sqlite_cmd = conn.CreateCommand();
-            sqlite_cmd.CommandText = Createsql;
-            sqlite_cmd.ExecuteNonQuery();
-            sqlite_cmd.CommandText = Createsql1;
-            sqlite_cmd.ExecuteNonQuery();
-
-        }
-
-        static void InsertData(SQLiteConnection conn)
-        {
-            SQLiteCommand sqlite_cmd;
-            sqlite_cmd = conn.CreateCommand();
-            sqlite_cmd.CommandText = "INSERT INTO SampleTable (Col1, Col2) VALUES('Test Text ', 1); ";
-           sqlite_cmd.ExecuteNonQuery();
-            sqlite_cmd.CommandText = "INSERT INTO SampleTable (Col1, Col2) VALUES('Test1 Text1 ', 2); ";
-           sqlite_cmd.ExecuteNonQuery();
-            sqlite_cmd.CommandText = "INSERT INTO SampleTable (Col1, Col2) VALUES('Test2 Text2 ', 3); ";
-           sqlite_cmd.ExecuteNonQuery();
-
-
-            sqlite_cmd.CommandText = "INSERT INTO SampleTable1 (Col1, Col2) VALUES('Test3 Text3 ', 3); ";
-           sqlite_cmd.ExecuteNonQuery();
-
-        }
-
-        static void ReadData(SQLiteConnection conn)
-        {
-            SQLiteDataReader sqlite_datareader;
-            SQLiteCommand sqlite_cmd;
-            sqlite_cmd = conn.CreateCommand();
-            sqlite_cmd.CommandText = "SELECT * FROM SampleTable";
-
-            sqlite_datareader = sqlite_cmd.ExecuteReader();
-            while (sqlite_datareader.Read())
-            {
-                string myreader = sqlite_datareader.GetString(0);
-                Console.WriteLine(myreader);
-            }
-            conn.Close();
+            return result;
         }
 
         static void Main(string[] args)
         {
-            SQLiteConnection sqlite_conn;
-            sqlite_conn = CreateConnection();
-            CreateTable(sqlite_conn);
-            InsertData(sqlite_conn);
-            ReadData(sqlite_conn);
-
-            RestoreSentences();
+            RestoreRequirements();
 
             while (true)
             {
-                Console.WriteLine("Nächster Befehl");
+                Console.WriteLine("Nächster Befehl (i für Hinweise)");
                 switch(Console.ReadLine())
                 {
                     case "i":
                         Console.WriteLine("Inprola Exp2 V0.0.1");
                         Console.WriteLine("Verfügbare Kommandos:");
-                        Console.WriteLine("s: Zeige alle bisherigen Sätze an");
-                        Console.WriteLine("n: Füge neuen Satz hinzu");
-                        Console.WriteLine("w: Speichere aktuelle Sätze");
-                        Console.WriteLine("r: Gehe zurück zum letzten Zustand der Sätze");
+                        Console.WriteLine("s: Zeige alle bisherigen Anforderungen an");
+                        Console.WriteLine("n: Füge neue Anforderung hinzu");
+                        Console.WriteLine("w: Speichere aktuelle Anforderungen");
+                        Console.WriteLine("r: Gehe zurück zum letzten Zustand der Anforderungen");
+                        Console.WriteLine("d: Lösche alle Anforderungen");
+                        Console.WriteLine("c: Führe Anforderungen aus");
                         Console.WriteLine("q: Programm schließen");
                         break;
 
                     case "s":
-                        foreach(var singleSentence in allSentences)
+                        foreach(var singleRequirement in allRequirements)
                         {
-                            Console.WriteLine(singleSentence);
+                            Console.WriteLine(singleRequirement);
                         }
                         break;
 
                     case "n":
-                        Console.WriteLine("Nächster Satz:");
-                        allSentences.Add(Console.ReadLine());
+                        Console.WriteLine("Nächstes Requirement:");
+                        allRequirements.Add(Console.ReadLine());
                         break;
 
                     case "w":
                         //open file stream
-                        using (StreamWriter file = File.CreateText("AllSentences.json"))
+                        using (StreamWriter file = File.CreateText(_RequirementFilename))
                         {
                             //serialize object directly into file stream
-                            string jsonResult = JsonSerializer.Serialize(allSentences);
+                            string jsonResult = JsonSerializer.Serialize(allRequirements);
                             file.Write(jsonResult);
                         }
                         break;
 
+                    case "d":
+                        DeleteRequirements();
+                        break;
+
+                    case "c":
+                        var result = CreateRequirementResult(allRequirements);
+                        Console.Write(result);
+                        Console.WriteLine("");
+                        break;
+
                     case "r":
-                        RestoreSentences();
+                        RestoreRequirements();
                         break;
 
                     case "q":
