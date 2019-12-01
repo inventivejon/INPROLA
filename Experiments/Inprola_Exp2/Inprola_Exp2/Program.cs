@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InprolaDBExp1;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
@@ -9,6 +10,7 @@ namespace Inprola_Exp2
     {
         private static List<string> allRequirements;
         private const string _RequirementFilename = "AllRequirements.json";
+        private static InDB _inDB;
 
         private static void DeleteRequirements()
         {
@@ -57,6 +59,9 @@ namespace Inprola_Exp2
 
         static void Main(string[] args)
         {
+            _inDB = new InDB();
+            _inDB.StartEngine("C:/Projects/inDB_Data_Exp2");
+
             RestoreRequirements();
 
             while (true)

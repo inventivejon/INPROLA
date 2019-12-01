@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29319.158
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inprola_Exp2", "Inprola_Exp2\Inprola_Exp2.csproj", "{0A4340E7-6752-4F40-8E76-F84FB9179082}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inprola_Exp2", "Inprola_Exp2\Inprola_Exp2.csproj", "{0A4340E7-6752-4F40-8E76-F84FB9179082}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InprolaDBExp1", "..\..\..\INPROLA-DB\InprolaDBExp1\InprolaDBExp1.csproj", "{D32B3A3F-B03C-42D8-A23E-2149DF22FE6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{0A4340E7-6752-4F40-8E76-F84FB9179082}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A4340E7-6752-4F40-8E76-F84FB9179082}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A4340E7-6752-4F40-8E76-F84FB9179082}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D32B3A3F-B03C-42D8-A23E-2149DF22FE6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D32B3A3F-B03C-42D8-A23E-2149DF22FE6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D32B3A3F-B03C-42D8-A23E-2149DF22FE6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D32B3A3F-B03C-42D8-A23E-2149DF22FE6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

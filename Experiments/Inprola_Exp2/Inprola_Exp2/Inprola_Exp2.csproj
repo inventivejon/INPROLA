@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\INPROLA-DB\InprolaDBExp1\InprolaDBExp1.csproj" />
+  </ItemGroup>
+
 </Project>
