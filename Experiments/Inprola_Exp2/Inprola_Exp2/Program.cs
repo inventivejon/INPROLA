@@ -38,7 +38,7 @@ namespace Inprola_Exp2
 
         static List<string> SplitSentences(string requirement)
         {
-            return new List<string>(requirement.Split('.', StringSplitOptions.RemoveEmptyEntries));
+            return new List<string>(requirement.TrimEnd('.').Split(". ", StringSplitOptions.RemoveEmptyEntries));
         }
 
         static List<string> SplitWords(string sentence)
@@ -49,6 +49,21 @@ namespace Inprola_Exp2
         static string CreateRequirementResult(string requirement)
         {
             var result = "";
+
+            foreach(var singleSentence in SplitSentences(requirement))
+            {
+                foreach(var singleWord in SplitWords(singleSentence))
+                {
+                    string match = _inDB.FindMatch(singleWord);
+                    if (string.IsNullOrEmpty(match))
+                    {
+                        Console.WriteLine("Verarbeitung abgebrochen");
+                        return result;
+                    }
+
+                    Console.WriteLine($"Wort:{singleWord} - {match}");
+                }
+            }
 
             return result;
         }
@@ -114,11 +129,18 @@ namespace Inprola_Exp2
                         break;
 
                     case "c":
-                        Console.WriteLine("Wähle ein Requirement per Index aus:");
-                        int index = int.Parse(Console.ReadLine());
-                        var result = CreateRequirementResult(allRequirements[index]);
-                        Console.Write(result);
-                        Console.WriteLine("");
+                        try
+                        {
+                            Console.WriteLine("Wähle ein Requirement per Index aus:");
+                            int index = int.Parse(Console.ReadLine());
+                            var result = CreateRequirementResult(allRequirements[index]);
+                            Console.Write(result);
+                            Console.WriteLine("");
+                        }
+                        catch(Exception ex)
+                        {
+                            Console.WriteLine(ex);
+                        }
                         break;
 
                     case "r":
