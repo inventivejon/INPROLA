@@ -75,6 +75,8 @@ namespace Inprola_Exp2
             setupStatus = setupStatus && _inDB.StartEngine();
             setupStatus = setupStatus && _inDB.RegisterFullDBNode(@"C:\Projects\INPROLA-Web-React-Express\Exp1\InDB4React");
             setupStatus = setupStatus && _inDB.RegisterFullDBNode(@"C:\Projects\INPROLA-Web-React-Express\Exp1\InDB4Express");
+            setupStatus = setupStatus && _inDB.RegisterFullDBNode(@"C:\Projects\INPROLA-CSharp\Exp1");
+            setupStatus = setupStatus && _inDB.RegisterFullDBNode(@"C:\Projects\INPROLA-Python\Exp1");
 
             if (!setupStatus)
             {

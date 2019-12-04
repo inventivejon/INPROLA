@@ -7,13 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inprola_Exp2", "Inprola_Exp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InprolaDBExp1", "..\..\..\INPROLA-DB\InprolaDBExp1\InprolaDBExp1.csproj", "{D32B3A3F-B03C-42D8-A23E-2149DF22FE6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INPROLA-Web-React-Express-Exp1", "..\..\..\INPROLA-Web-React-Express\Exp1\INPROLA-Web-React-Express-Exp1\INPROLA-Web-React-Express-Exp1.csproj", "{4AD502E9-EA31-4A97-AF62-FCF761D60908}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "INPROLA-Web-React-Express-Exp1", "..\..\..\INPROLA-Web-React-Express\Exp1\INPROLA-Web-React-Express-Exp1\INPROLA-Web-React-Express-Exp1.csproj", "{4AD502E9-EA31-4A97-AF62-FCF761D60908}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inprola_EnvironmentFactoryTemplate", "Inprola_EnvironmentFactoryTemplate\Inprola_EnvironmentFactoryTemplate\Inprola_EnvironmentFactoryTemplate.csproj", "{57E0F6AD-2125-4583-9D2C-501F79DD91F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inprola_EnvironmentFactoryTemplate", "Inprola_EnvironmentFactoryTemplate\Inprola_EnvironmentFactoryTemplate\Inprola_EnvironmentFactoryTemplate.csproj", "{57E0F6AD-2125-4583-9D2C-501F79DD91F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INPROLA-Python", "..\..\..\INPROLA-Python\INPROLA-Python\INPROLA-Python.csproj", "{D27A2CF0-96D5-47F0-B822-678F44370DA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "INPROLA-Python", "..\..\..\INPROLA-Python\INPROLA-Python\INPROLA-Python.csproj", "{D27A2CF0-96D5-47F0-B822-678F44370DA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INPROLA-CSharp", "..\..\..\INPROLA-CSharp\INPROLA-CSharp\INPROLA-CSharp.csproj", "{530E39CA-49C8-4879-9A81-0F9DBE283DAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "INPROLA-CSharp", "..\..\..\INPROLA-CSharp\INPROLA-CSharp\INPROLA-CSharp.csproj", "{530E39CA-49C8-4879-9A81-0F9DBE283DAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INPROLA-Language-Deutsch", "..\..\..\INPROLA-Language-Deutsch\INPROLA-Language-Deutsch\INPROLA-Language-Deutsch.csproj", "{34A72000-1DC5-4EEC-9A18-5DA90A622A5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{530E39CA-49C8-4879-9A81-0F9DBE283DAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{530E39CA-49C8-4879-9A81-0F9DBE283DAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{530E39CA-49C8-4879-9A81-0F9DBE283DAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34A72000-1DC5-4EEC-9A18-5DA90A622A5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34A72000-1DC5-4EEC-9A18-5DA90A622A5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34A72000-1DC5-4EEC-9A18-5DA90A622A5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34A72000-1DC5-4EEC-9A18-5DA90A622A5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
